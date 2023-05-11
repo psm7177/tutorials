@@ -1,0 +1,108 @@
+[gd_scene load_steps=17 format=3 uid="uid://b7r0eedr0cghe"]
+
+[ext_resource type="Texture2D" uid="uid://dmf285igw4dxc" path="res://Mini Pixel Pack 3/Player ship/Player_ship (16 x 16).png" id="1_3hoao"]
+[ext_resource type="Script" path="res://player.gd" id="2_nyqpu"]
+[ext_resource type="Texture2D" uid="uid://c3tkicuhnkc0c" path="res://Mini Pixel Pack 3/Player ship/Boosters (16 x 16).png" id="3_pj73s"]
+[ext_resource type="Texture2D" uid="uid://d0evqi8or5pgy" path="res://Mini Pixel Pack 3/Player ship/Boosters_left (16 x 16).png" id="4_p22xo"]
+[ext_resource type="Texture2D" uid="uid://d4iaxuw8tki86" path="res://Mini Pixel Pack 3/Player ship/Boosters_right (16 x 16).png" id="5_7c5rg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s40x8"]
+atlas = ExtResource("1_3hoao")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iikhv"]
+atlas = ExtResource("1_3hoao")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2jek"]
+atlas = ExtResource("1_3hoao")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j5ooi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s40x8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iikhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2jek")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soqlp"]
+atlas = ExtResource("3_pj73s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kke0"]
+atlas = ExtResource("3_pj73s")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_roup2"]
+atlas = ExtResource("4_p22xo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmx60"]
+atlas = ExtResource("4_p22xo")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmyu1"]
+atlas = ExtResource("5_7c5rg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha25x"]
+atlas = ExtResource("5_7c5rg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0drom"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soqlp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kke0")
+}],
+"loop": true,
+"name": &"forward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_roup2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmx60")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmyu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ha25x")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[node name="Ship" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_j5ooi")
+frame = 1
+script = ExtResource("2_nyqpu")
+
+[node name="Booster" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 15)
+sprite_frames = SubResource("SpriteFrames_0drom")
+animation = &"forward"
+autoplay = "forward"
+frame_progress = 0.872717
